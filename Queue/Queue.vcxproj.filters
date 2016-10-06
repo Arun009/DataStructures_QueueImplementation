@@ -21,9 +21,15 @@
     <ClCompile Include="QueueArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QueueLinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QueueArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
