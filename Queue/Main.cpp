@@ -26,7 +26,7 @@ int main()
 			break;
 
 		case 2:
-			//linkedListImplementation();
+			linkedListImplementation();
 			break;
 
 		case 3:
@@ -51,14 +51,14 @@ enterSize: // goto identifier for entering size
 		goto enterSize;
 	}
 
-	QueueArray queue(size);
+	QueueArray queueArray(size);
 
 	int choice = -1;
 	do
 	{
 		cout << endl << "1. Push Value into Queue." << endl;
 		cout << "2. Pop Value from Queue." << endl;
-		cout << "3. Peek Top from Queue." << endl;
+		cout << "3. Peek Front from Queue." << endl;
 		cout << "4. Check Queue isEmpty." << endl;
 		cout << "5. Display Queue" << endl;
 		cout << "6. Main Menu" << endl;
@@ -74,28 +74,28 @@ enterSize: // goto identifier for entering size
 			int value;
 			cout << endl << "Enter the value to be pushed into Queue" << endl;
 			cin >> value;
-			queue.enqueue(value);
+			queueArray.enqueue(value);
 			break;
 
 		case 2:
-			if (queue.isEmpty())
+			if (queueArray.isEmpty())
 				cout << "Queue is empty" << endl;
 			else {
-				int deletedValue = queue.dequeue();
+				int deletedValue = queueArray.dequeue();
 				cout << deletedValue << " deleted from the queue" << endl;
 			}
 			break;
 
 		case 3:
-			if (!queue.isEmpty())
-				cout << queue.peek() << endl;
+			if (!queueArray.isEmpty())
+				cout << queueArray.peek() << endl;
 			else
 				cout << "Queue is empty" << endl;
 			system("pause");
 			break;
 
 		case 4:
-			if (queue.isEmpty())
+			if (queueArray.isEmpty())
 				cout << "Queue is empty" << endl;
 			else
 				cout << "Queue is not empty" << endl;
@@ -103,7 +103,7 @@ enterSize: // goto identifier for entering size
 			break;
 
 		case 5:
-			queue.display();
+			queueArray.display();
 			break;
 
 		case 6:
@@ -111,6 +111,79 @@ enterSize: // goto identifier for entering size
 			break;
 
 		case 7:
+			exit(0);
+		}
+	} while (choice != 6);
+}
+
+void linkedListImplementation()
+{
+	int size = 0;
+
+	cout << endl << "Queue Implementation using Linked List" << endl;
+	cout << "--------------------------------------" << endl;
+	
+	QueueLinkedList queueLinkedList;
+	int choice = -1;
+	do
+	{
+		cout << endl << "1. Push Value into Queue." << endl;
+		cout << "2. Pop Value from Queue." << endl;
+		cout << "3. Peek Front from Queue." << endl;
+		cout << "4. Check Queue isEmpty." << endl;
+		cout << "5. Display Queue" << endl;
+		cout << "6. Main Menu" << endl;
+		cout << "7. Exit." << endl;
+		cout << "Enter a choice :";
+		cin >> choice;
+		if (choice > 7 || choice < 1)
+			cout << "Invalid Choice" << endl;
+
+		switch (choice)
+		{
+		case 1:
+			int value;
+			cout << endl << "Enter the value to be pushed into Queue" << endl;
+			cin >> value;
+			queueLinkedList.enqueue(value);
+			break;
+
+		case 2:
+			if (queueLinkedList.isEmpty())
+				cout << "Queue is empty" << endl;
+			else {
+				int deletedValue = queueLinkedList.dequeue();
+				cout << deletedValue << " deleted from the queue" << endl;
+			}
+			break;
+
+		case 3:
+			if (!queueLinkedList.isEmpty())
+				cout << queueLinkedList.peek() << endl;
+			else
+				cout << "Queue is empty" << endl;
+			system("pause");
+			break;
+
+		case 4:
+			if (queueLinkedList.isEmpty())
+				cout << "Queue is empty" << endl;
+			else
+				cout << "Queue is not empty" << endl;
+			system("pause");
+			break;
+
+		case 5:
+			queueLinkedList.display();
+			break;
+
+		case 6:
+			cout << endl;
+			queueLinkedList.destroy();
+			break;
+
+		case 7:
+			queueLinkedList.destroy();
 			exit(0);
 		}
 	} while (choice != 6);
